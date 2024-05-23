@@ -22,13 +22,8 @@ public class Main {
             System.out.println("Enter a valid word!");
         }
 
-        for (int i = 0; i < word.length(); i++) {
-            char tmpChar = word.charAt(i);
-            if (results.containsKey(tmpChar)) {
-                results.put(tmpChar, results.get(tmpChar) + 1);
-            } else {
-                results.put(tmpChar, 1);
-            }
+        for (char c : word.toCharArray()) {
+            results.put(c, results.getOrDefault(c, 0) + 1);
         }
 
         for (Map.Entry<Character, Integer> entry : results.entrySet()) {
